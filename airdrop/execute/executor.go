@@ -3,7 +3,6 @@ package execute
 import (
 	"fmt"
 	"github.com/binance-chain/chain-tooling/airdrop/plan"
-	"github.com/binance-chain/go-sdk/client"
 	"github.com/binance-chain/go-sdk/common/types"
 	"github.com/binance-chain/go-sdk/types/msg"
 	"log"
@@ -24,7 +23,8 @@ func (ex *Executor) Execute() error {
 	var context = ex.context
 	context.StartTime = time.Now()
 
-	client, err := ex.getDexClient()
+	client, err := ex.context.GetDexClient()
+
 	if err != nil {
 		return err
 	}
@@ -67,7 +67,7 @@ func (ex *Executor) Execute() error {
 func (ex *Executor) Validate() error {
 
 	var context = ex.context
-	client, err := ex.getDexClient()
+	client, err := context.GetDexClient()
 
 	if err != nil {
 		return err
@@ -90,8 +90,4 @@ func (ex *Executor) Validate() error {
 	}
 
 	return nil
-}
-
-func (ex *Executor) getDexClient() (client.DexClient, error) {
-	return client.NewDexClient(ex.context.Config.BaseUrl, ex.context.Config.Network, ex.context.KeyManager)
 }
