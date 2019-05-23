@@ -16,7 +16,7 @@ func Report(context *plan.ExecuteContext) error {
 
 	var conf = context.Config
 
-	jobReport := fmt.Sprintf(_jobReportTemplate, conf.Env, conf.Token, conf.Amount, conf.ReceiversCount, conf.BatchSize, conf.ReportFile, context.Sender, context.StartTime.Format(time.RFC3339), context.CompleteTime.Format(time.RFC3339))
+	jobReport := fmt.Sprintf(_jobReportTemplate, conf.BatchSize, conf.ReportFile, context.Sender, context.StartTime.Format(time.RFC3339), context.CompleteTime.Format(time.RFC3339))
 
 	executeReport, error := executeReport(context)
 	if error != nil {
@@ -28,7 +28,7 @@ func Report(context *plan.ExecuteContext) error {
 	return output(jobReport, executeReport, reportFile)
 }
 
-const _jobReportTemplate = "env:%s\r\ntoken:%s\r\namount:%d\r\nreceivercount:%d\r\nbatchsize:%d\r\nreportfile:%s\r\nsender:%s\r\nstarttime:%s\r\ncompletetime:%s\r\n"
+const _jobReportTemplate = "batchsize:%d\r\nreportfile:%s\r\nsender:%s\r\nstarttime:%s\r\ncompletetime:%s\r\n"
 
 type executeTask struct {
 	Token          string `header:"token"`
@@ -74,7 +74,7 @@ func output(report1 string, report2 string, outputFile string) error {
 	if len(report1) > 0 {
 		log.Print(report1)
 	}
-
+	log.Println("-------------------------------------------------------------------------------------")
 	if len(report2) > 0 {
 		log.Print("\n" + report2)
 	}

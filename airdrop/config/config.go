@@ -32,7 +32,6 @@ func init() {
 		log.Fatal(error)
 		panic(error)
 	}
-	logConf(rawConf)
 	error2 := validateConfig(rawConf)
 
 	if error2 != nil {
