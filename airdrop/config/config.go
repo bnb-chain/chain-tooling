@@ -96,6 +96,7 @@ func validateConfig(conf *Conf) error {
 	if conf.Env == "testnet" {
 		conf.BaseUrl = "testnet-dex.binance.org"
 		conf.Network = types.TestNetwork
+		types.Network = types.TestNetwork
 	} else if conf.Env == "prod" {
 		conf.BaseUrl = "dex.binance.org"
 		conf.Network = types.ProdNetwork
