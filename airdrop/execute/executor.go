@@ -27,7 +27,7 @@ func (ex *Executor) Execute() error {
 	}
 
 	for _, task := range context.Tasks {
-		time.Sleep(3 * time.Second)
+		time.Sleep(1 * time.Second)
 		receivers := task.Receivers
 		var transfers = make([]msg.Transfer, len(receivers))
 
@@ -68,6 +68,7 @@ func (ex *Executor) Validate() error {
 	}
 
 	for _, task := range context.Tasks {
+		time.Sleep(1 * time.Second)
 		if len(task.TxHash) > 0 {
 			txResult, error := client.GetTx(task.TxHash)
 
