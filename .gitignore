@@ -1,0 +1,38 @@
+.idea/
+*.iml
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/build/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+**/target/**
+.mvn/**
+out/**
+
+### Avro ###
+dex-service/src/main/java/org/binance/dex/model/avro/
+
+tmp/*
+*.tmp
+*.exe
+*.exe~
+
