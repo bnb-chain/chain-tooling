@@ -6,7 +6,7 @@ import (
 	"github.com/binance-chain/go-sdk/client"
 	"github.com/binance-chain/go-sdk/common/types"
 	"github.com/binance-chain/go-sdk/types/msg"
-	"github.com/prometheus/common/log"
+	"log"
 	"strings"
 	"time"
 )
@@ -48,17 +48,15 @@ func (ex *Executor) Execute() error {
 			continue
 		}
 
-		log.Info(fmt.Sprintf("Trying to send %d(each) %s to %s", task.EachAmount, task.Token, strings.Join(task.Receivers, ",")))
+		log.Println(fmt.Sprintf("Trying to send %d(each) %s to %s", task.EachAmount, task.Token, strings.Join(task.Receivers, ",")))
 		result, err := client.SendToken(transfers, true)
 
 		if err == nil {
-			log.Info()
 			task.TxHash = result.Hash
-			log.Info(fmt.Sprintf("Complete with tx %s", result.Hash))
+			log.Println(fmt.Sprintf("Complete with tx %s", result.Hash))
 		} else {
-			log.Info()
 			task.Exception = err
-			log.Info(fmt.Sprintf("Failed with exception %s", err.Error()))
+			log.Println(fmt.Sprintf("Failed with exception %s", err.Error()))
 		}
 	}
 	context.CompleteTime = time.Now()
