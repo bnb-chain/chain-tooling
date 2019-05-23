@@ -27,7 +27,7 @@ func (ex *Executor) Execute() error {
 	}
 
 	for _, task := range context.Tasks {
-		time.Sleep(1 * time.Second)
+		time.Sleep(2 * time.Second)
 		receivers := task.Receivers
 		var transfers = make([]msg.Transfer, len(receivers))
 
