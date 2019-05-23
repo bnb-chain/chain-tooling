@@ -20,6 +20,7 @@ type Conf struct {
 	Sender         string
 	Mnemonic       string
 	BatchSize      int
+	BatchInterval  int
 	ReportFile     string
 	Network        types.ChainNetwork
 }
@@ -49,6 +50,8 @@ func logConf(conf *Conf) {
 	log.Println("env:" + conf.Env)
 	log.Println("token:" + conf.Token)
 	log.Println("amount:" + strconv.FormatInt(conf.Amount, 10))
+	log.Println("batch size:" + strconv.Itoa(conf.BatchSize))
+	log.Println("batch interval (s):" + strconv.Itoa(conf.BatchInterval))
 	log.Println("receivers count:" + strconv.Itoa(len(conf.Receivers)))
 }
 
@@ -84,6 +87,8 @@ func parseConfig(configFile string) (*Conf, error) {
 			}
 		case "batchsize":
 			result.BatchSize, _ = strconv.Atoi(value)
+		case "batchinterval":
+			result.BatchInterval, _ = strconv.Atoi(value)
 		case "reportfile":
 			result.ReportFile = value
 		}
@@ -123,6 +128,10 @@ func validateConfig(conf *Conf) error {
 
 	if len(conf.ReportFile) == 0 {
 		conf.ReportFile = "report." + strconv.FormatInt(time.Now().UnixNano()/int64(1000000000), 10)
+	}
+
+	if conf.BatchInterval <= 0 {
+		conf.BatchInterval = 5
 	}
 
 	return nil
