@@ -30,7 +30,7 @@ func (ex *Executor) Execute() error {
 	}
 
 	for _, task := range context.Tasks {
-		time.Sleep(5 * time.Second)
+		time.Sleep(time.Duration(context.Config.BatchInterval) * time.Second)
 		receivers := task.Receivers
 		var transfers = make([]msg.Transfer, len(receivers))
 
