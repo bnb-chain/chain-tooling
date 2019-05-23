@@ -1,7 +1,9 @@
 package plan
 
 import (
+	"errors"
 	"github.com/binance-chain/chain-tooling/airdrop/config"
+	"github.com/binance-chain/go-sdk/client"
 	"github.com/binance-chain/go-sdk/keys"
 	"log"
 	"time"
@@ -19,6 +21,10 @@ type ExecuteContext struct {
 
 	StartTime    time.Time
 	CompleteTime time.Time
+}
+
+func (ex *ExecuteContext) GetDexClient() (client.DexClient, error) {
+	return client.NewDexClient(ex.Config.BaseUrl, ex.Config.Network, ex.KeyManager)
 }
 
 type ExecuteTask struct {
@@ -58,6 +64,29 @@ func (pm *PlanMaker) InitializeContext() error {
 
 func (pm *PlanMaker) MakeExecutePlan() error {
 	var context = pm.Context
+
+	client, error := context.GetDexClient()
+
+	if error != nil {
+		return error
+	}
+
+	account, error := client.GetAccount(context.Sender)
+
+	if error != nil {
+		return error
+	}
+
+	var balanceAmount = int64(0)
+	for _, balance := range account.Balances {
+		if balance.Symbol == context.Config.Token {
+			balanceAmount = balance.Free.ToInt64()
+		}
+	}
+
+	if balanceAmount < context.Config.Amount {
+		return errors.New("Your balance is not enough for this airdrop ")
+	}
 
 	batchSize := context.Config.BatchSize
 	taskCount := ((context.Config.ReceiversCount - 1) / batchSize) + 1
