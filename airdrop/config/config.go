@@ -7,6 +7,7 @@ import (
 	"log"
 	"strconv"
 	"strings"
+	"time"
 )
 
 type Conf struct {
@@ -118,6 +119,10 @@ func validateConfig(conf *Conf) error {
 
 	if conf.BatchSize <= 0 || conf.BatchSize > 1000 {
 		return errors.New("batchsize must be greater than 0 and less than 1001")
+	}
+
+	if len(conf.ReportFile) == 0 {
+		conf.ReportFile = "report." + strconv.FormatInt(time.Now().UnixNano()/int64(1000000000), 10)
 	}
 
 	return nil
