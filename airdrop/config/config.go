@@ -106,6 +106,7 @@ func validateConfig(conf *Conf) error {
 	} else if conf.Env == "prod" {
 		conf.BaseUrl = "dex.binance.org"
 		conf.Network = types.ProdNetwork
+		types.Network = types.ProdNetwork
 	} else {
 		return errors.New("env must be testnet or prod ")
 	}
@@ -132,6 +133,15 @@ func validateConfig(conf *Conf) error {
 
 	if conf.BatchInterval <= 0 {
 		conf.BatchInterval = 5
+	}
+
+	addressMap := make(map[string]bool)
+	for _, address := range conf.Receivers {
+		if addressMap[address] {
+			return errors.New(address + " is duplicated in the config file, please check the receivers list")
+		} else {
+			addressMap[address] = true
+		}
 	}
 
 	return nil
