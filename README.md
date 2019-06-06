@@ -29,12 +29,12 @@ go install
 ## Configuration
 There is a configuration file called **airdrop.conf**, you can make you configurations there in the file.
 
-- env : could be testnet or prod
-- token : the token name you wish to deliver
-- amount : the amount you want to deliver, notice the amount here should be real amount multiplied by 10^8 , and it should always be an integer with no fractional part
-- batchsize : the airdrop task would be divided in to several batches, the batchsize is the number of addresses in one batch. We suggest 500~1000 would be a good choice as that a small batchsize would result in more batches which would waste time while a large batchsize would cause failure delivery
-- mnemonic : paste the mnemonic of your sender account here 
-- receivers : paste the addresses you want to deliver the tokens here, addresses should be separated by comma
+- **env** : could be testnet or prod
+- **token** : the token name you wish to deliver
+- **amount** : the amount you want to deliver, notice the amount here should be real amount multiplied by 10^8 , and it should always be an integer with no fractional part
+- **batchsize** : the airdrop task would be divided in to several batches, the batchsize is the number of addresses in one batch. We suggest 500~1000 would be a good choice as that a small batchsize would result in more batches which would waste time while a large batchsize would cause failure delivery
+- **mnemonic** : paste the mnemonic of your sender account here 
+- **receivers** : paste the addresses you want to deliver the tokens here, addresses should be separated by comma
 
 ## Run
 
