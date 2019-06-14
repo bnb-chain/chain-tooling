@@ -1,7 +1,7 @@
 # Binance Chain Tool Box
 
 # Airdrop
- __Disclaimer: Airdrop is very error prone and can cause big financial loss. No gurantee is provided to use this tool. Please do test it on testnet and use it carefully.__
+ __Disclaimer: Airdrop is very error prone and can cause big financial loss. No guarantee is provided to use this tool. Please do test it on testnet and use it carefully.__
 
 ## Installation
 
