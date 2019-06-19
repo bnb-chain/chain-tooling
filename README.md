@@ -1,6 +1,8 @@
 # Binance Chain Tool Box
 
 # Airdrop
+ __Disclaimer: Airdrop is very error prone and can cause big financial loss. No guarantee is provided to use this tool. Please do test it on testnet and use it carefully.__
+
 ## Installation
 
 If you don't want to build from the source code, just clone this repository there is already a runnable file - **airdrop** you can make up the configurations and directly run against the runnable file.
