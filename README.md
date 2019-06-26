@@ -6,7 +6,7 @@
 ## Installation
 
 If you don't want to build from the source code, just clone this repository there is already a runnable file - **airdrop** you can make up the configurations and directly run against the runnable file.
-  
+
 ```bash
 git clone https://github.com/binance-chain/chain-tooling.git
 cd chain-tooling/airdrop
@@ -49,3 +49,22 @@ run is easy with
 ## Execution report
 
 After execute the airdrop task, there should be a report file to record the task.
+
+# Token APP
+
+ __Disclaimer: When you try to issue asset on Binance Chain, you should be extra careful with your command. It is recommended to use a hardware wallet to sign your transactions. Please do test it on testnet and use it carefully.__
+
+
+
+## Install
+
+Only version for MacOS is released now. 
+
+1. Download the installer and unzip the file
+2. Copy the app to your Application folder and double-click on the icon
+
+## How to Use
+
+Please read this [guide](./token-app/binance-chain-gui.pdf) carefully.
+
+
