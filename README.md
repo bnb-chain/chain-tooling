@@ -63,3 +63,8 @@ Only version for MacOS is released now.
 1. Download the installer and unzip the file
 2. Copy the app to your Application folder and double-click on the icon
 
+## How to Use
+
+Please read this [guide](./token-app/binance-chain-gui.pdf) carefully.
+
+
