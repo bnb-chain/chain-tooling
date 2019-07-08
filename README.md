@@ -56,8 +56,16 @@ After execute the airdrop task, there should be a report file to record the task
 
 
 
-## Install
+## Install Git LFS
 
+Git Large File Storage (LFS) replaces large files such as audio samples, videos, datasets, and graphics with text pointers inside Git, while storing the file contents on a remote server like GitHub.com or GitHub Enterprise.
+
+Please go to https://git-lfs.github.com/ and install git lfs.
+
+Download Binary with Git LFS:
+git lfs clone https://github.com/binance-chain/chain-tooling.git
+
+## Download the zip
 Only version for MacOS is released now. 
 
 1. Download the installer and unzip the file
