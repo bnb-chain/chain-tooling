@@ -52,27 +52,33 @@ After execute the airdrop task, there should be a report file to record the task
 
 # Token APP
 
+> :no_entry: [DEPRECATED] Active at https://github.com/binance-chain/chain-tooling/token-app 
+
+:point_right:Please follow the latest guideline on how to manage your BEP2 tokens and submit listing proposals: 
+
+* [English Version](https://community.binance.org/topic/2487)
+* [Chinese Version](https://community.binance.org/topic/2488/)
+
  __Disclaimer: When you try to issue asset on Binance Chain, you should be extra careful with your command. It is recommended to use a hardware wallet to sign your transactions. Please do test it on testnet and use it carefully.__
-
-
 
 ## Install Git LFS
 
-Git Large File Storage (LFS) replaces large files such as audio samples, videos, datasets, and graphics with text pointers inside Git, while storing the file contents on a remote server like GitHub.com or GitHub Enterprise.
+~~Git Large File Storage (LFS) replaces large files such as audio samples, videos, datasets, and graphics with text pointers inside Git, while storing the file contents on a remote server like GitHub.com or GitHub Enterprise.~~
 
-Please go to https://git-lfs.github.com/ and install git lfs.
+~~Please go to https://git-lfs.github.com/ and install git lfs.~~
 
-Download Binary with Git LFS:
-git lfs clone https://github.com/binance-chain/chain-tooling.git
+~~Download Binary with Git LFS:~~
+~~git lfs clone https://github.com/binance-chain/chain-tooling.git~~
 
 ## Download the zip
-Only version for MacOS is released now. 
+~~Only version for MacOS is released now.~~ 
 
-1. Download the installer and unzip the file
-2. Copy the app to your Application folder and double-click on the icon
+~~1. Download the installer and unzip the file~~
+
+~~2. Copy the app to your Application folder and double-click on the icon~~
 
 ## How to Use
 
-Please read this [guide](./token-app/binance-chain-gui.pdf) carefully.
+~~Please read this [guide](./token-app/binance-chain-gui.pdf) carefully.~~
 
 
