@@ -21,13 +21,7 @@ Binance Chain airdrop tool helps you send tokens to multiple addresses with the 
 ]
 ```
 
-You will pay on mainnet/testnet
-
-```
-0.0003 BNB * 5 = 0.0015 BNB
-```
-
-
+You will pay on mainnet/testnet `0.0003 BNB * 3 = 0.0009 BNB`, rather than 0.000375BNB*3
 
 ## Install
 
@@ -39,9 +33,9 @@ We have a installer script (install.sh) that takes care of chain directory setup
 # One-line install
 sh <(wget -qO- )
 ```
-Note that we have two different binaries: `bairdrop` is used for mainnet and `tbairdrop` for testnet. 
+Note that we have two different binaries: `bairdrop` is used for mainnet and `tbairdrop` for testnet.
 
-To confirm the installament is successful: 
+To confirm the installament is successful:
 ```
 $ bairdrop
 BlockChain Airdrop
@@ -62,7 +56,7 @@ Flags:
 Use "tbairdrop [command] --help" for more information about a command.
 ```
 
-### Prepare Distribution File 
+### Prepare Distribution File
 First of all, we need to prepare the CSV file of transfer details, including target accounts and the amount for the individual. It has its specific format which looks like the below:
 
 ![transfer_details.csv](./assets/transfer_example.png?raw=true "example")
@@ -97,7 +91,7 @@ Then we can start distributing with subcommand `run`.
 
 ### Example
 
-Now, let us do a demo with `tbairdrop`. First of all, make sure the you have the right account locally. In this example, we use the account with name of `fromAcc`. 
+Now, let us do a demo with `tbairdrop`. First of all, make sure the you have the right account locally. In this example, we use the account with name of `fromAcc`.
 
 ```
   $ tbairdrop keys list
@@ -111,7 +105,7 @@ At last, you can execute the `airdrop` with the transfer file specified.
 $ tbairdrop run --file transfer_details.csv --chain-id Binance-Chain-Nile  --node data-seed-pre-0-s1.binance.org:80 --from fromAcc
 ```
 
-Following is the log of this execution, you can get `txhash`of this airdrop transaction. 
+Following is the log of this execution, you can get `txhash`of this airdrop transaction.
 
 ```
 1.  ==>Start to run with file: transfer_details.csv
@@ -134,14 +128,12 @@ Following is the log of this execution, you can get `txhash`of this airdrop tran
 ```
 ## Verify Transfer Transaction
 
-To confirm that your transaction went through, you can use [mainet explorer](https://explorer.binance.org/) or [testnet explorer](https://testnet-explorer.binance.org/) for searching airdrop transacions by `txhash` to verify the airdrop result. 
+To confirm that your transaction went through, you can use [mainet explorer](https://explorer.binance.org/) or [testnet explorer](https://testnet-explorer.binance.org/) for searching airdrop transacions by `txhash` to verify the airdrop result.
 
 ### Errors
 It is worth noting that if for any reason it fails during a batch execution, you need to double confirm that whether this transfer is on chain based on tx hash the console prints. And you should remove the records of the successful transfer from the CSV to prevent repeated transfer, and execute it again.
 
-For example, if it crashes after the console prints line:
-+ 8/9：meaning batch1 and batch2 are transferred successfully. We should remove the related rows from the CSV, and re-run this file with the command.
-+ 10: meaning batch1 and batch2 are transferred successfully. But it is not sure if batch3 is successfully executed, we should take a look with the transaction hash *F474F3ABF5E770EE1291821C07234236403028767BD912011F5CAB42228D8725* offline. For instance, you can check it on the explorer `https://testnet-explorer.binance.org/tx/F474F3ABF5E770EE1291821C07234236403028767BD912011F5CAB42228D8725`. 
-
-
+In the previous  example, 
++ if it crashes after the console prints line: 8 or 9, it means batch1 and batch2 are transferred successfully and  batch3 is not executed yet. We should remove the related rows from the CSV, and re-run this file with the command.
++  if it crashes after the console prints line 10, it means batch1 and batch2 are transferred successfully. But it is not sure if batch3 is successfully executed, we should take a look with the transaction hash *F474F3ABF5E770EE1291821C07234236403028767BD912011F5CAB42228D8725* offline. For instance, you can check it on the explorer `https://testnet-explorer.binance.org/tx/F474F3ABF5E770EE1291821C07234236403028767BD912011F5CAB42228D8725`.
 
