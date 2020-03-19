@@ -31,7 +31,7 @@ We have a installer script (install.sh) that takes care of chain directory setup
 * Client executables stored in /usr/local/bin (i.e. bairdrop or tbairdrop)
 ```
 # One-line install
-sh <(wget -qO- )
+sh <(wget -qO- https://raw.githubusercontent.com/binance-chain/chain-tooling/airdrop/install.sh)
 ```
 Note that we have two different binaries: `bairdrop` is used for mainnet and `tbairdrop` for testnet.
 
