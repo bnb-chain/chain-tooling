@@ -85,6 +85,26 @@ $ curl localhost:27147/status
 }
 ```
 
+For testnet, 
+```
+$ curl localhost:26657/status
+{
+  "jsonrpc": "2.0",
+  "id": "",
+  "result": {
+    ......
+    "sync_info": {
+      ......
+      "latest_block_height": "41977", // the latest block height downloaded from peers
+      "latest_block_time": "2019-12-22T00:00:00.414320569Z",
+      "catching_up": true,
+      "index_height": "0"
+    },
+    ......
+  }
+}
+```
+
 If the data similar to the above of `json` format is returned, it indicates that the process is still running well. The value of `latest_block_height` represents the latest block height you've downloaded from other peers. 
 
 At first, the value of `latest_block_height` is 0. And then it turns to the height of the block created at 0:00 UTC of the day. It is likely that this value remains at that height for some time which depends on your network speed, meaning that the process is synchronizing the data in *`state sync`* mode. Then this value increases, which means it has switched to fast sync mode. After it finishes synchronizing, the log shows like the below
@@ -111,16 +131,3 @@ Finally, those account balances will be ouput to a CSV file, named by asset and 
 - If a folder serves as a *home* of a fullnode that you started ever, then you should be careful to use it as your home directory for this executive tool, since the historic block data could be removed by this tool.
 - If you has launched a fullnode that is keeping synced with the Block Chain. You can do a quick search by using the BNCHOME as the home dir of this tool.The premise is to stop the whole node for a moment.
 - Once it starts, it will take a long time to download data from other peers. For current experience, it will take minutes or even hours to sync. The longer this height is from 00:00UTC, the longer it takes. 
-
-
-
-
-
-
-
-
-
-
-
-
-
