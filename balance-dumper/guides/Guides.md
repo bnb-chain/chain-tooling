@@ -120,11 +120,11 @@ It stops the synchronization， and starts to fetch accounts at this height.
 ===>finish fetching,got 107677 matched account
 ```
 
-Finally, those account balances will be ouput to a CSV file, named by asset and height, as *BNB_56503900.csv*. The following is the example of a result file
+Finally, those account balances will be ouput to a CSV file, named by asset and height, as *BNB_56503900.csv*. You can see the total balance, which equals sume of `available`, `freeze` and `in-order` . The following is the example of a result file
 
 ![BNB_56503900.csv](./assets/result_shot.png "BNB_56503900.csv")
 
->**Note that for the balance, we take the last 8 digits as the decimal place, meaning the balance of *bnb1edrs5cukhx060e02u98v9j8spum7vhuqg9ctxd* in the above example is actually *32888888BNB*.**
+>**Note that for the balance, we take the last 8 digits as the decimal place, meaning the total balance of *bnb1ultyhpw2p2ktvr68swz56570lgj2rdsadq3ym2* in the above example is actually *48461323.79051191BNB*.**
 
 ## Notice
 
