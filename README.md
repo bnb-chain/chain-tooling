@@ -1,4 +1,4 @@
-# BNB Beacob Chain Tool Box
+# BNB Beacon Chain Tool Box
 
 # Airdrop
  __Disclaimer: Airdrop is very error prone and can cause big financial loss. Please do test it on testnet and use it carefully.__
