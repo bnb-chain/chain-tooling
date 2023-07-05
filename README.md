@@ -1,3 +1,4 @@
+**This repo is out of maintenance and decommissioned.**
 # BNB Beacon Chain Tool Box
 
 # Airdrop
